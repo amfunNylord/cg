@@ -2,18 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
 
-    let start = null;
-
-    window.drawLineFromConsole = function(x1, y1, x2, y2, color) {
-        drawLine({ x: x1, y: y1 }, { x: x2, y: y2 }, color);
-      };
-
-    function drawLine(start, end, color) {
-      let x1 = start.x;
-      let y1 = start.y;
-      const x2 = end.x;
-      const y2 = end.y;
-
+    window.drawLine = function(x1, y1, x2, y2, color) {
       const dx = Math.abs(x2 - x1);
       const dy = Math.abs(y2 - y1);
       const sx = x1 < x2 ? 1 : -1;
@@ -41,4 +30,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     }
-  });
+});

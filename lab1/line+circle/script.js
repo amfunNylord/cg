@@ -2,36 +2,83 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
 
-    window.drawLine = function(x1, y1, x2, y2, color) {
-      const dx = Math.abs(x2 - x1);
-      const dy = Math.abs(y2 - y1);
-      const sx = x1 < x2 ? 1 : -1;
-      const sy = y1 < y2 ? 1 : -1;
-      let err = dx - dy;
-
-      while (true) {
+    function drawSteepLine(from, to) 
+    {
+        const deltaX = Math.abs(to.x - from.x);
+        const deltaY = Math.abs(to.y - from.y);
+      
+        if (from.y > to.y) 
+        {
+            [from, to] = [to, from];
+        }
+      
+        const stepX = Math.sign(to.x - from.x);
+        const errorThreshold = deltaY + 1;
+        const deltaErr = deltaX + 1;
+      
+        let error = deltaErr / 2;
+      
+        for (let p = { ...from }; p.y <= to.y; ++p.y) 
+        {
+            context.fillRect(p.x, p.y, 1, 1);
+      
+            error += deltaErr;
+      
+            if (error >= errorThreshold) 
+            {
+                p.x += stepX;
+                error -= errorThreshold;
+            }
+        }
+    }
+      
+    function drawSlopeLine(from, to) 
+    {
+        const deltaX = Math.abs(to.x - from.x);
+        const deltaY = Math.abs(to.y - from.y);
+      
+        if (from.x > to.x) 
+        {
+            [from, to] = [to, from];
+        }
+      
+        const stepY = Math.sign(to.y - from.y);
+        const errorThreshold = deltaX + 1;
+        const deltaErr = deltaY + 1;
+      
+        let error = deltaErr / 2;
+      
+        for (let p = { ...from }; p.x <= to.x; ++p.x)
+        {
+            context.fillRect(p.x, p.y, 1, 1);
+      
+            error += deltaErr;
+      
+            if (error >= errorThreshold) 
+            {
+                p.y += stepY;
+                error -= errorThreshold;
+            }
+        }
+    }
+      
+    window.DrawLine = function drawLine(from, to, color) 
+    {
+        const deltaX = Math.abs(to.x - from.x);
+        const deltaY = Math.abs(to.y - from.y);
         context.fillStyle = color;
-        context.fillRect(x1, y1, 1, 1);
-
-        if (x1 === x2 && y1 === y2) {
-          break;
+        if (deltaY > deltaX) 
+        {
+            drawSteepLine(from, to);
+        } 
+        else 
+        {
+            drawSlopeLine(from, to);
         }
-
-        const e2 = 2 * err;
-
-        if (e2 > -dy) {
-          err -= dy;
-          x1 += sx;
-        }
-
-        if (e2 < dx) {
-          err += dx;
-          y1 += sy;
-        }
-      }
     }
 
-    window.drawCircle = function(x1, y1, radius, color) {
+    window.drawCircle = function(x1, y1, radius, color) 
+    {
         let x = 0;
         let y = radius;
         let delta = 1 - 2 * radius;
@@ -60,5 +107,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             delta += 2 * (++x - --y);
         }
-}
+    }
 });

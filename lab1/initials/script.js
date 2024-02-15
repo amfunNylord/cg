@@ -6,7 +6,7 @@ window.onload = () => {
     drawLetterA(context);
     drawLetterC(context);
 }
-
+// легко менять коордиаты букв сделать, про трансформации в канвасе
 function drawLetterM(context) 
 {
     context.fillStyle = "rgb(0, 0, 255)";

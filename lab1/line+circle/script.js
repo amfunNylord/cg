@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    window.drawCircle = function(x1, y1, radius, color) 
+    window.DrawCircle = function(x1, y1, radius, color) 
     {
         let x = 0;
         let y = radius;

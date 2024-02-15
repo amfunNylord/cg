@@ -97,7 +97,7 @@ function drawFence(context)
     context.fillRect(0, 350, 640, 5);
     context.fillRect(0, 400, 640, 5);
 }
-
+// сделать два домика и один из них меньше 
 function useDragAndDrop(element)
 {
     var isDragging = false;

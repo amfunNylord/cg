@@ -17,7 +17,6 @@ void main() async {
 
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
-    await windowManager.focus();
   });
   runApp(const MyApp());
 }
@@ -46,7 +45,7 @@ class _OpenImagePageState extends State<OpenImagePage> {
   Future<void> _openImageFile() async {
     const XTypeGroup typeGroup = XTypeGroup(
       label: 'images',
-      extensions: <String>['jpg', 'png'],
+      extensions: <String>['jpg'],
     );
     XFile? file = await openFile(acceptedTypeGroups: <XTypeGroup>[typeGroup]);
     if (file == null) {

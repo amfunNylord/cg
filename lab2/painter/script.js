@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
         isDrawing = false;
         context.beginPath();
     }
-
+    // если выходит за пределы и воозвращается продолжает рисовать
+    // картинка сохраняется в своих пропорциях или размерах открытие
+    // поддержать полупрозрачность
     function draw(e) 
     {
         if (!isDrawing) 
@@ -28,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
         context.stroke();
-        context.beginPath();
         context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
     }
 

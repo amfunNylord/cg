@@ -1,7 +1,5 @@
 #include <GLFW/glfw3.h>
 #include <stdexcept>
-#define _USE_MATH_DEFINES
-#include <math.h>
 
 class GLFWInitializer final
 {

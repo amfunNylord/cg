@@ -76,7 +76,7 @@ private:
 		glViewport(0, 0, width, height);
 
 		glBegin(GL_LINES);
-		// рисование x
+
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glVertex2f(-1.0f, 0.0f);
 		glVertex2f(1.0f, 0.0f);
@@ -88,14 +88,13 @@ private:
 		float x0 = -1;
 		float y0 = 0;
 
-		for (int i = 0; i < 40; i++)
+		for (int i = 0; i < 200; i++)
 		{
-			glVertex2f(x0, (float)(y0 + 0.05));
-			glVertex2f(x0, (float)(y0 - 0.05));
-			x0 += float(0.05);
+			glVertex2f(x0, (float)(y0 + 0.01));
+			glVertex2f(x0, (float)(y0 - 0.01));
+			x0 += float(0.01);
 		}
 
-		// рисование y
 		glColor3f(0.0f, 0.0f, 1.0f);
 		glVertex2f(0.0f, 1.0f);
 		glVertex2f(0.0f, -1.0f);
@@ -107,22 +106,21 @@ private:
 		x0 = 0;
 		y0 = -1;
 
-		for (int i = 0; i < 40; i++)
+		for (int i = 0; i < 200; i++)
 		{
-			glVertex2f((float)(x0 + 0.05), y0);
-			glVertex2f((float)(x0 - 0.05), y0);
-			y0 += float(0.05);
+			glVertex2f((float)(x0 + 0.01), y0);
+			glVertex2f((float)(x0 - 0.01), y0);
+			y0 += float(0.01);
 		}
 		glEnd();
 
-		// построение графика
 		glBegin(GL_LINE_STRIP);
 		glColor3f(0.0f, 1.0f, 0.0f);
-		for (int i = -2; i <= 3; i++)
+		for (int i = -40; i <= 60; i++)
 		{
 			x0 = (float)i;
 			y0 = (float)(2 * pow(x0, 2)) - 3 * x0 - 8;
-			glVertex2f(float(x0 * 0.05), float(y0 * 0.05));
+			glVertex2f(float(x0 * 0.01), float(y0 * 0.01));
 		}
 		glEnd();
 	}
@@ -131,6 +129,6 @@ private:
 int main()
 {
 	GLFWInitializer initGLFW;
-	Window window{ 800, 600, "Graph" };
+	Window window{ 600, 600, "Graph" };
 	window.Run();
 }

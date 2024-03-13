@@ -9,10 +9,7 @@ const int PIECE_HEIGHT = PIECE_WIDTH;
 
 const int FIELD_WIDTH = 10 + 2;
 const int FIELD_HEIGHT = 20 + 1;
-const PointF FIELD_LEFT_TOP = { -0.6f, 0.5f }; // check drawSquare algorithm
-const PointF FIELD_LEFT_BOT = { -0.3f, -0.45f };
-const PointF FIELD_RIGHT_BOT = { 0.25f, -0.45f };
-const PointF FIELD_RIGHT_TOP = { 0.25f, 0.5f };
+const PointF FIELD_LEFT_TOP = { -0.6f, 0.5f }; 
 const int START_POS_X = 4;
 const int START_POS_Y = 0;
 

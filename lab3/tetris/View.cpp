@@ -350,7 +350,6 @@ void View::DrawT(const PointF& coords)
 {
 	glVertex2f(coords.x, coords.y);
 	glVertex2f(coords.x + 0.03f, coords.y);
-
 	glVertex2f(coords.x + 0.015f, coords.y);
 	glVertex2f(coords.x + 0.015f, coords.y - 0.05f);
 
@@ -529,7 +528,6 @@ void View::DrawColon(const PointF& coords)
 	glVertex2f(coords.x + 0.012f, coords.y - 0.0128f);
 	glVertex2f(coords.x + 0.012f, coords.y - 0.0128f);
 	glVertex2f(coords.x + 0.012f, coords.y - 0.0122f);
-
 	glVertex2f(coords.x + 0.012f, coords.y - 0.0372f);
 	glVertex2f(coords.x + 0.018f, coords.y - 0.0372f);
 	glVertex2f(coords.x + 0.018f, coords.y - 0.0322f);

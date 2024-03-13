@@ -44,7 +44,7 @@ public:
 	bool IsNoWallDown();
 	bool IsNoWallRight();
 	bool IsNoWallLeft();
-	bool IsFull(); //todo: нужно будет переделать
+	bool IsFull();
 	bool IsPossibleRotate();
 	bool IsNeededClearLines();
 

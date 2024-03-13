@@ -462,7 +462,7 @@ void Field::ClearLines()
 		break;
 	}
 
-	if (m_linesLeft == 0)
+	if (m_linesLeft < 0)
 	{
 		int emptyLines = 0;
 		for (int i = 0; i < FIELD_HEIGHT; i++)

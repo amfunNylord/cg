@@ -69,6 +69,7 @@ int main()
 
 	while (!glfwWindowShouldClose(window))
 	{
+		// играть невозможно
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glViewport(0, 0, WINDOW_SIZE, WINDOW_SIZE);
@@ -87,10 +88,6 @@ int main()
 				}
 				else
 				{
-					if (game.IsNeededClearLines())
-					{
-						game.ClearLines();
-					}
 					if (game.IsFull())
 					{
 						game.Pause();
@@ -99,7 +96,10 @@ int main()
 						game.ResetLevel();
 						game.ResetLinesLeft();
 						game.ResetSpeed();
-
+					}
+					if (game.IsNeededClearLines())
+					{
+						game.ClearLines();
 					}
 
 					game.SetCurrentPiece();
@@ -114,7 +114,7 @@ int main()
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 		
-		WaitTime(game.GetSpeed());
+		WaitTime(game.GetSpeed()); 
 	}
 
 	glfwTerminate();

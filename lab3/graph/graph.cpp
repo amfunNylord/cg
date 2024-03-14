@@ -1,6 +1,7 @@
 #include <GLFW/glfw3.h>
 #include <stdexcept>
 
+// пропорции оставались, сделать класс graph
 class GLFWInitializer final
 {
 public:
@@ -39,7 +40,8 @@ public:
 	{
 		glfwDestroyWindow(m_window);
 	}
-
+	// glfwSwapBuffers что делает и зачем
+	// чем отличается матрица проецирования и матрица моделирования-вида
 	void Run()
 	{
 		glfwMakeContextCurrent(m_window);

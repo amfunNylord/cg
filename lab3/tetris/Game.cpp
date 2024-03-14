@@ -381,7 +381,7 @@ void Game::MovingPieceByUser(const char& key)
 		break;
 	}
 }
-
+// все упростить
 void Game::RotatePiece()
 {
 	PointI currCoords = m_currentPiece.GetCoords();
@@ -416,7 +416,7 @@ void Game::RotatePiece()
 	{
 		newPieceContains.at(i).at(0) = pieceContains.at(3).at(i);
 	}
-
+	// переименовать contains
 	m_currentPiece.SetContains(newPieceContains);
 
 	for (int i = 0; i < PIECE_HEIGHT; i++)
@@ -462,8 +462,12 @@ void Game::ClearLines()
 		break;
 	}
 
-	if (m_linesLeft < 0)
+	if (m_linesLeft <= 0)
 	{
+		if (m_level == GAME_LEVEL_3)
+		{
+			Pause();
+		}
 		int emptyLines = 0;
 		for (int i = 0; i < FIELD_HEIGHT; i++)
 		{

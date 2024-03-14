@@ -7,6 +7,10 @@
 
 using FieldMatrix = std::array<std::array<int, FIELD_WIDTH>, FIELD_HEIGHT>;
 
+// сделать const методы те которые должны быть
+// класс игры не должен знать про клавиши, сделать enum
+// уменьшить количество публичных методов, сделать Tick
+// неудобно управлять
 class Game
 {
 public:

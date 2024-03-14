@@ -40,6 +40,7 @@ private:
 	void Draw8(const PointF& coords);
 	void Draw9(const PointF& coords);
 
+	void DrawDigit(const PointF& coords, const int& digit);
 	void DrawColon(const PointF& coords);
 	void DrawNextPiece(const PointF& coords);
 

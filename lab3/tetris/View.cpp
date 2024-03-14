@@ -148,80 +148,15 @@ void View::DrawScore(PointF& coords)
 	}
 	for (int i = 6; i > -1; i--)
 	{
-		switch (digits.at(i))
-		{
-		case 0:
-			Draw0(coords);
-			break;
-		case 1:
-			Draw1(coords);
-			break;
-		case 2:
-			Draw2(coords);
-			break;
-		case 3:
-			Draw3(coords);
-			break;
-		case 4:
-			Draw4(coords);
-			break;
-		case 5:
-			Draw5(coords);
-			break;
-		case 6:
-			Draw6(coords);
-			break;
-		case 7:
-			Draw7(coords);
-			break;
-		case 8:
-			Draw8(coords);
-			break;
-		case 9:
-			Draw9(coords);
-			break;
-		}
+		DrawDigit(coords, digits.at(i));
 		coords.x += 0.05f;
-		
 	}
 }
 
 void View::DrawLevelNumber(const PointF& coords)
 {
 	int level = m_game.GetLevel();
-	switch (level)
-	{
-	case 0:
-		Draw0(coords);
-		break;
-	case 1:
-		Draw1(coords);
-		break;
-	case 2:
-		Draw2(coords);
-		break;
-	case 3:
-		Draw3(coords);
-		break;
-	case 4:
-		Draw4(coords);
-		break;
-	case 5:
-		Draw5(coords);
-		break;
-	case 6:
-		Draw6(coords);
-		break;
-	case 7:
-		Draw7(coords);
-		break;
-	case 8:
-		Draw8(coords);
-		break;
-	case 9:
-		Draw9(coords);
-		break;
-	}
+	DrawDigit(coords, level);
 }
 
 void View::DrawLinesLeft(PointF& coords)
@@ -235,39 +170,7 @@ void View::DrawLinesLeft(PointF& coords)
 	}
 	for (int i = 1; i > -1; i--)
 	{
-		switch (digits.at(i))
-		{
-		case 0:
-			Draw0(coords);
-			break;
-		case 1:
-			Draw1(coords);
-			break;
-		case 2:
-			Draw2(coords);
-			break;
-		case 3:
-			Draw3(coords);
-			break;
-		case 4:
-			Draw4(coords);
-			break;
-		case 5:
-			Draw5(coords);
-			break;
-		case 6:
-			Draw6(coords);
-			break;
-		case 7:
-			Draw7(coords);
-			break;
-		case 8:
-			Draw8(coords);
-			break;
-		case 9:
-			Draw9(coords);
-			break;
-		}
+		DrawDigit(coords, digits.at(i));
 		coords.x += 0.05f;
 	}
 }
@@ -304,10 +207,8 @@ void View::DrawI(const PointF& coords)
 {
 	glVertex2f(coords.x, coords.y);
 	glVertex2f(coords.x + 0.03f,coords.y);
-
 	glVertex2f(coords.x + 0.015f, coords.y);
 	glVertex2f(coords.x + 0.015f, coords.y - 0.05f);
-
 	glVertex2f(coords.x, coords.y - 0.05f);
 	glVertex2f(coords.x + 0.03f, coords.y - 0.05f);
 }
@@ -516,6 +417,43 @@ void View::Draw9(const PointF& coords)
 	glVertex2f(coords.x + 0.03f, coords.y - 0.05f);
 	glVertex2f(coords.x + 0.03f, coords.y - 0.05f);
 	glVertex2f(coords.x, coords.y - 0.05f);
+}
+
+void View::DrawDigit(const PointF& coords, const int& digit)
+{
+	switch (digit)
+	{
+	case 0:
+		Draw0(coords);
+		break;
+	case 1:
+		Draw1(coords);
+		break;
+	case 2:
+		Draw2(coords);
+		break;
+	case 3:
+		Draw3(coords);
+		break;
+	case 4:
+		Draw4(coords);
+		break;
+	case 5:
+		Draw5(coords);
+		break;
+	case 6:
+		Draw6(coords);
+		break;
+	case 7:
+		Draw7(coords);
+		break;
+	case 8:
+		Draw8(coords);
+		break;
+	case 9:
+		Draw9(coords);
+		break;
+	}
 }
 
 void View::DrawColon(const PointF& coords)

@@ -1,8 +1,8 @@
-#include "Field.h"
+#include "Game.h"
 #include "Pieces.h"
 #include "TimeFunctions.h"
 
-Field::Field()
+Game::Game()
 	: m_nextPiece(GetRandomPiece())
 	, m_currentPiece(GetRandomPiece())
 {
@@ -17,37 +17,37 @@ Field::Field()
 	}
 }
 
-FieldMatrix Field::GetMatrix() const
+FieldMatrix Game::GetMatrix() const
 {
 	return m_matrix;
 }
 
-int Field::GetLevel() const
+int Game::GetLevel() const
 {
 	return m_level;
 }
 
-int Field::GetScore() const
+int Game::GetScore() const
 {
 	return m_score;
 }
 
-int Field::GetLinesLeft() const
+int Game::GetLinesLeft() const
 {
 	return m_linesLeft;
 }
 
-int Field::GetSpeed() const
+int Game::GetSpeed() const
 {
 	return m_speed;
 }
 
-bool Field::IsNeededNewPiece()
+bool Game::IsNeededNewPiece()
 {
 	return m_isNeededNewPiece;
 }
 
-bool Field::IsNoWallDown()
+bool Game::IsNoWallDown()
 {
 	PieceContains pieceContains = m_currentPiece.GetContains();
 	PointI currCoords = m_currentPiece.GetCoords();
@@ -99,7 +99,7 @@ bool Field::IsNoWallDown()
 	return true;
 }
 
-bool Field::IsNoWallRight()
+bool Game::IsNoWallRight()
 {	
 	PieceContains pieceContains = m_currentPiece.GetContains();
 	PointI currCoords = m_currentPiece.GetCoords();
@@ -151,7 +151,7 @@ bool Field::IsNoWallRight()
 	return true;
 }
 
-bool Field::IsNoWallLeft()
+bool Game::IsNoWallLeft()
 {
 	PieceContains pieceContains = m_currentPiece.GetContains();
 	PointI currCoords = m_currentPiece.GetCoords();
@@ -203,7 +203,7 @@ bool Field::IsNoWallLeft()
 	return true;
 }
 
-bool Field::IsFull()
+bool Game::IsFull()
 {
 	for (int i = 0; i < PIECE_HEIGHT; i++)
 	{
@@ -218,7 +218,7 @@ bool Field::IsFull()
 	return false;
 }
 
-bool Field::IsPossibleRotate()
+bool Game::IsPossibleRotate()
 {
 	PointI currCoords = m_currentPiece.GetCoords();
 	PieceContains pieceContains = m_currentPiece.GetContains();
@@ -262,7 +262,7 @@ bool Field::IsPossibleRotate()
 	return true;
 }
 
-bool Field::IsNeededClearLines()
+bool Game::IsNeededClearLines()
 {
 	for (int i = FIELD_HEIGHT - 2; i > 0; i--)
 	{
@@ -283,7 +283,7 @@ bool Field::IsNeededClearLines()
 	return m_lineIndexesCount != 0;
 }
 
-void Field::MoveAllDown(const int& fromLine)
+void Game::MoveAllDown(const int& fromLine)
 {
 	for (int i = fromLine - 1; i > -1; i--)
 	{
@@ -295,7 +295,7 @@ void Field::MoveAllDown(const int& fromLine)
 	}
 }
 
-void Field::MovingPieceLeft()
+void Game::MovingPieceLeft()
 {
 	PointI currCoords = m_currentPiece.GetCoords();
 	PieceContains pieceContains = m_currentPiece.GetContains();
@@ -314,7 +314,7 @@ void Field::MovingPieceLeft()
 	m_currentPiece.SetCoords({ currCoords.x - 1, currCoords.y });
 }
 
-void Field::MovingPieceRight()
+void Game::MovingPieceRight()
 {
 	PointI currCoords = m_currentPiece.GetCoords();
 	PieceContains pieceContains = m_currentPiece.GetContains();
@@ -333,7 +333,7 @@ void Field::MovingPieceRight()
 	m_currentPiece.SetCoords({ currCoords.x + 1, currCoords.y });
 }
 
-void Field::AddPiece(const Piece& piece)
+void Game::AddPiece(const Piece& piece)
 {
 	for (int i = 0; i < PIECE_HEIGHT; i++)
 	{
@@ -348,7 +348,7 @@ void Field::AddPiece(const Piece& piece)
 	m_isNeededNewPiece = false;
 }
 
-void Field::MovingPieceByGame()
+void Game::MovingPieceByGame()
 {
 	PieceContains pieceContains = m_currentPiece.GetContains();
 	PointI currCoords = m_currentPiece.GetCoords();
@@ -366,7 +366,7 @@ void Field::MovingPieceByGame()
 	m_currentPiece.SetCoords({ currCoords.x, currCoords.y + 1 });
 }
 
-void Field::MovingPieceByUser(const char& key)
+void Game::MovingPieceByUser(const char& key)
 {
 	switch (key)
 	{
@@ -382,7 +382,7 @@ void Field::MovingPieceByUser(const char& key)
 	}
 }
 
-void Field::RotatePiece()
+void Game::RotatePiece()
 {
 	PointI currCoords = m_currentPiece.GetCoords();
 	PieceContains pieceContains = m_currentPiece.GetContains();
@@ -431,7 +431,7 @@ void Field::RotatePiece()
 	}
 }
 
-void Field::ClearLines()
+void Game::ClearLines()
 {
 	for (int i = m_lineIndexesCount - 1; i > -1; i--)
 	{
@@ -500,7 +500,7 @@ void Field::ClearLines()
 	m_lineIndexesCount = 0;
 }
 
-void Field::Clear()
+void Game::Clear()
 {
 	for (int i = 0; i < FIELD_HEIGHT - 1; i++)
 	{
@@ -514,67 +514,67 @@ void Field::Clear()
 	}
 }
 
-bool Field::IsPaused()
+bool Game::IsPaused()
 {
 	return m_isPaused;
 }
 
-Piece Field::GetCurrentPiece()
+Piece Game::GetCurrentPiece()
 {
 	return m_currentPiece;
 }
 
-Piece Field::GetNextPiece()
+Piece Game::GetNextPiece()
 {
 	return m_nextPiece;
 }
 
-void Field::SetNextPiece()
+void Game::SetNextPiece()
 {
 	m_nextPiece = GetRandomPiece();
 }
 
-void Field::SetCurrentPiece()
+void Game::SetCurrentPiece()
 {
 	m_currentPiece = m_nextPiece;
 }
 
-void Field::SetNeededNewPiece()
+void Game::SetNeededNewPiece()
 {
 	m_isNeededNewPiece = true;
 }
 
-void Field::ResetScore()
+void Game::ResetScore()
 {
 	m_score = 0;
 }
 
-void Field::ResetLevel()
+void Game::ResetLevel()
 {
 	m_level = GAME_LEVEL_1;
 }
 
-void Field::ResetSpeed()
+void Game::ResetSpeed()
 {
 	m_speed = GAME_SPEED_LEVEL_1;
 }
 
-void Field::ResetLinesLeft()
+void Game::ResetLinesLeft()
 {
 	m_linesLeft = GAME_LINES_LEFT_1;
 }
 
-void Field::Pause()
+void Game::Pause()
 {
 	m_isPaused = true;
 }
 
-void Field::Unpause()
+void Game::Unpause()
 {
 	m_isPaused = false;
 }
 
-Piece Field::GetRandomPiece()
+Piece Game::GetRandomPiece()
 {
 	return ALL_PIECES.at(GenerateRandomIndex());
 }

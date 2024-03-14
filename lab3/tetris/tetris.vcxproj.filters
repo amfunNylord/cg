@@ -19,7 +19,7 @@
     <Filter Include="View">
       <UniqueIdentifier>{92d04924-280d-4e17-9852-b5c43b25912e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Field">
+    <Filter Include="Game">
       <UniqueIdentifier>{326761bb-5f62-48be-be62-9adc0c991e8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -33,8 +33,8 @@
     <ClCompile Include="View.cpp">
       <Filter>View</Filter>
     </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>Field</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +56,8 @@
     <ClInclude Include="View.h">
       <Filter>View</Filter>
     </ClInclude>
-    <ClInclude Include="Field.h">
-      <Filter>Field</Filter>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

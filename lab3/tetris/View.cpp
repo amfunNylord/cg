@@ -1,18 +1,18 @@
 #include <GLFW/glfw3.h>
 #include "View.h"
 
-View::View(Field& field)
-	: m_field(field)
+View::View(Game& game)
+	: m_game(game)
 {
 }
 
-void View::DrawUI(const Field& field)
+void View::DrawUI()
 {
-	DrawInfoPanel(field);
-	DrawField(field);
+	DrawInfoPanel();
+	DrawField();
 }
 
-void View::DrawInfoPanel(const Field& field)
+void View::DrawInfoPanel()
 {
 	PointF coords = { 0.15f, 0.5f };
 
@@ -96,7 +96,7 @@ void View::DrawInfoPanel(const Field& field)
 	DrawNextPiece(coords);
 }
 
-void View::DrawField(const Field& field)
+void View::DrawField()
 {
 	PointF pos = FIELD_LEFT_TOP;
 
@@ -104,7 +104,7 @@ void View::DrawField(const Field& field)
 	{
 		for (int j = 0; j < FIELD_WIDTH; j++)
 		{
-			DrawSquare(pos, field.GetMatrix().at(i).at(j));
+			DrawSquare(pos, m_game.GetMatrix().at(i).at(j));
 			pos.x += 0.05f;
 		}
 		pos.x = FIELD_LEFT_TOP.x;
@@ -139,7 +139,7 @@ void View::DrawSquare(const PointF& coords, const int& colorIndex)
 //todo: переделать
 void View::DrawScore(PointF& coords)
 {
-	int score = m_field.GetScore();
+	int score = m_game.GetScore();
 	std::array<int, 7> digits;
 	for (int i = 0; i < 7; i++)
 	{
@@ -188,7 +188,7 @@ void View::DrawScore(PointF& coords)
 
 void View::DrawLevelNumber(const PointF& coords)
 {
-	int level = m_field.GetLevel();
+	int level = m_game.GetLevel();
 	switch (level)
 	{
 	case 0:
@@ -226,7 +226,7 @@ void View::DrawLevelNumber(const PointF& coords)
 
 void View::DrawLinesLeft(PointF& coords)
 {
-	int linesLeft = m_field.GetLinesLeft();
+	int linesLeft = m_game.GetLinesLeft();
 	std::array<int, 2> digits;
 	for (int i = 0; i < 2; i++)
 	{
@@ -541,7 +541,7 @@ void View::DrawColon(const PointF& coords)
 void View::DrawNextPiece(const PointF& coords)
 {
 	PointF pos = coords;
-	Piece nextPiece = m_field.GetNextPiece();
+	Piece nextPiece = m_game.GetNextPiece();
 	PieceContains pieceContains = nextPiece.GetContains();
 	
 	for (int i = 0; i < PIECE_HEIGHT; i++)

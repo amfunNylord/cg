@@ -1,16 +1,16 @@
 #pragma once
 #include "Point.h"
-#include "Field.h"
+#include "Game.h"
 
 class View
 {
 public:
-	View(Field& field);
-	void DrawUI(const Field& field);
+	View(Game& field);
+	void DrawUI();
 
 private:
-	void DrawInfoPanel(const Field& field);
-	void DrawField(const Field& field);
+	void DrawInfoPanel();
+	void DrawField();
 	void DrawSquare(const PointF& coords, const int& color);
 	void DrawScore(PointF& coords);
 	void DrawLevelNumber(const PointF& coords);
@@ -43,5 +43,5 @@ private:
 	void DrawColon(const PointF& coords);
 	void DrawNextPiece(const PointF& coords);
 
-	Field& m_field;
+	Game& m_game;
 };

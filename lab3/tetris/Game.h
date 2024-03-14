@@ -7,10 +7,10 @@
 
 using FieldMatrix = std::array<std::array<int, FIELD_WIDTH>, FIELD_HEIGHT>;
 
-class Field
+class Game
 {
 public:
-	Field();
+	Game();
 
 	void AddPiece(const Piece& piece);
 	void MovingPieceByGame();

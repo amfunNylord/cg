@@ -12,9 +12,9 @@ private:
 	void DrawInfoPanel();
 	void DrawField();
 	void DrawSquare(const PointF& coords, const int& color);
-	void DrawScore(PointF& coords);
-	void DrawLevelNumber(const PointF& coords);
-	void DrawLinesLeft(PointF& coords);
+	void DrawScore(PointF coords);
+	void DrawLevel(PointF coords);
+	void DrawLinesLeft(PointF coords);
 
 	void DrawL(const PointF& coords);
 	void DrawE(const PointF& coords);
@@ -43,6 +43,10 @@ private:
 	void DrawDigit(const PointF& coords, const int& digit);
 	void DrawColon(const PointF& coords);
 	void DrawNextPiece(const PointF& coords);
+	void DrawScoreNumber(PointF& coords);
+	void DrawLevelNumber(const PointF& coords);
+	void DrawLinesLeftNumber(PointF& coords);
+	void DrawNextText(PointF& coords);
 
 	Game& m_game;
 };

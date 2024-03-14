@@ -19,76 +19,16 @@ void View::DrawInfoPanel()
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
 
-	DrawL(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-	coords.x += 0.05f;
-	DrawV(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-	coords.x += 0.05f;
-	DrawL(coords);
+	DrawLevel(coords);
 
-	coords.x += 0.025f;
-	DrawColon(coords);
-
-	coords.x += 0.05f;
-	DrawLevelNumber(coords);
-
-	coords = { 0.15f, 0.43f };
-	DrawL(coords);
-	coords.x += 0.05f;
-	DrawI(coords);
-	coords.x += 0.05f;
-	DrawN(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-	coords.x += 0.05f;
-	DrawS(coords);
-	coords.x += 0.1f;
-	
-	DrawL(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-	coords.x += 0.05f;
-	DrawF(coords);
-	coords.x += 0.05f;
-	DrawT(coords);
-
-	coords.x += 0.025f;
-	DrawColon(coords);
-
-	coords.x += 0.05f;
+	coords.y -= 0.07f;
 	DrawLinesLeft(coords);
 
-	coords = { 0.15f, 0.36f };
-	DrawS(coords);
-	coords.x += 0.05f;
-	DrawC(coords);
-	coords.x += 0.05f;
-	DrawO(coords);
-	coords.x += 0.05f;
-	DrawR(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-
-	coords.x += 0.025f;
-	DrawColon(coords);
-
-	coords.x += 0.05f;
+	coords.y -= 0.07f;
 	DrawScore(coords);
 
-	coords = { 0.15f, 0.29f };
-	DrawN(coords);
-	coords.x += 0.05f;
-	DrawE(coords);
-	coords.x += 0.05f;
-	DrawX(coords);
-	coords.x += 0.05f;
-	DrawT(coords);
-
-	coords.x += 0.025f;
-	DrawColon(coords);
+	coords.y -= 0.07f;
+	DrawNextText(coords);
 
 	glEnd();
 
@@ -136,8 +76,74 @@ void View::DrawSquare(const PointF& coords, const int& colorIndex)
 	glEnd();
 }
 
+void View::DrawScore(PointF coords)
+{
+	DrawS(coords);
+	coords.x += 0.05f;
+	DrawC(coords);
+	coords.x += 0.05f;
+	DrawO(coords);
+	coords.x += 0.05f;
+	DrawR(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+
+	coords.x += 0.025f;
+	DrawColon(coords);
+
+	coords.x += 0.05f;
+	DrawScoreNumber(coords);
+}
+
+void View::DrawLevel(PointF coords)
+{
+	DrawL(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+	coords.x += 0.05f;
+	DrawV(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+	coords.x += 0.05f;
+	DrawL(coords);
+
+	coords.x += 0.025f;
+	DrawColon(coords);
+
+	coords.x += 0.05f;
+	DrawLevelNumber(coords);
+}
+
+void View::DrawLinesLeft(PointF coords)
+{
+	DrawL(coords);
+	coords.x += 0.05f;
+	DrawI(coords);
+	coords.x += 0.05f;
+	DrawN(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+	coords.x += 0.05f;
+	DrawS(coords);
+	coords.x += 0.1f;
+
+	DrawL(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+	coords.x += 0.05f;
+	DrawF(coords);
+	coords.x += 0.05f;
+	DrawT(coords);
+
+	coords.x += 0.025f;
+	DrawColon(coords);
+
+	coords.x += 0.05f;
+	DrawLinesLeftNumber(coords);
+}
+
 //todo: переделать
-void View::DrawScore(PointF& coords)
+void View::DrawScoreNumber(PointF& coords)
 {
 	int score = m_game.GetScore();
 	std::array<int, 7> digits;
@@ -159,7 +165,7 @@ void View::DrawLevelNumber(const PointF& coords)
 	DrawDigit(coords, level);
 }
 
-void View::DrawLinesLeft(PointF& coords)
+void View::DrawLinesLeftNumber(PointF& coords)
 {
 	int linesLeft = m_game.GetLinesLeft();
 	std::array<int, 2> digits;
@@ -173,6 +179,20 @@ void View::DrawLinesLeft(PointF& coords)
 		DrawDigit(coords, digits.at(i));
 		coords.x += 0.05f;
 	}
+}
+
+void View::DrawNextText(PointF& coords)
+{
+	DrawN(coords);
+	coords.x += 0.05f;
+	DrawE(coords);
+	coords.x += 0.05f;
+	DrawX(coords);
+	coords.x += 0.05f;
+	DrawT(coords);
+
+	coords.x += 0.025f;
+	DrawColon(coords);
 }
 
 void View::DrawL(const PointF& coords)

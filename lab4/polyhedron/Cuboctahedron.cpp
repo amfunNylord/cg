@@ -6,20 +6,20 @@ Cuboctahedron::Cuboctahedron(float size)
 {
 	constexpr glm::vec4 defaultColor{ 1, 1, 1, 1 };
 	SetSideColor(CuboctahedronSide::FRONT_SQUARE_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::REAR_SQUARE_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::BACK_SQUARE_FACE, defaultColor);
 	SetSideColor(CuboctahedronSide::RIGHT_SQUARE_FACE, defaultColor);
 	SetSideColor(CuboctahedronSide::LEFT_SQUARE_FACE, defaultColor);
 	SetSideColor(CuboctahedronSide::UPPER_SQUARE_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::LOWER_SQUARE_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::BOTTOM_SQUARE_FACE, defaultColor);
 
 	SetSideColor(CuboctahedronSide::RIGHT_UPPER_FRONT_TRIANGULAR_FACE, defaultColor);
 	SetSideColor(CuboctahedronSide::LEFT_UPPER_FRONT_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::LEFT_LOWER_FRONT_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::RIGHT_LOWER_FRONT_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::RIGHT_UPPER_REAR_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::LEFT_UPPER_REAR_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::LEFT_LOWER_REAR_TRIANGULAR_FACE, defaultColor);
-	SetSideColor(CuboctahedronSide::RIGHT_LOWER_REAR_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::LEFT_BOTTOM_FRONT_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_FRONT_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::RIGHT_UPPER_BACK_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::LEFT_UPPER_BACK_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::LEFT_BOTTOM_BACK_TRIANGULAR_FACE, defaultColor);
+	SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_BACK_TRIANGULAR_FACE, defaultColor);
 }
 
 void Cuboctahedron::Draw() const

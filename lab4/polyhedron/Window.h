@@ -1,6 +1,5 @@
 #pragma once
 #include "BaseWindow.h"
-#include "Cube.h"
 #include "Cuboctahedron.h"
 
 class Window : public BaseWindow
@@ -24,7 +23,6 @@ private:
 
 	void SetupCameraMatrix();
 
-	Cube m_cube;
 	Cuboctahedron m_cuboctahedron;
 	
 	// –ассто€ние от камеры до точки вращени€

@@ -6,8 +6,8 @@ namespace
 {
 // Угол обзора по вертикали
 constexpr double FIELD_OF_VIEW = 60 * M_PI / 180.0;
-// Размер стороны куба
-constexpr double CUBE_SIZE = 1;
+// Размер стороны кубооктаэдра
+constexpr double CUBOCTAHEDRON_SIZE = 1;
 
 constexpr double Z_NEAR = 0.1;
 constexpr double Z_FAR = 10;
@@ -30,36 +30,24 @@ glm::dmat4x4 Orthonormalize(const glm::dmat4x4& m) // Ортонормализация означает 
 
 Window::Window(int w, int h, const char* title)
 	: BaseWindow(w, h, title)
-	, m_cube(CUBE_SIZE)
-	, m_cuboctahedron(1)
+	, m_cuboctahedron(CUBOCTAHEDRON_SIZE)
 {
-
-	m_cube.SetSideColor(CubeSide::NEGATIVE_X, { 1, 0, 0, 1 });
-	m_cube.SetSideColor(CubeSide::POSITIVE_X, { 0, 1, 0, 1 });
-	m_cube.SetSideColor(CubeSide::NEGATIVE_Y, { 0, 0, 1, 1 });
-	m_cube.SetSideColor(CubeSide::POSITIVE_Y, { 1, 1, 0, 1 });
-	m_cube.SetSideColor(CubeSide::NEGATIVE_Z, { 0, 1, 1, 1 });
-	m_cube.SetSideColor(CubeSide::POSITIVE_Z, { 1, 0, 1, 1 });
-
-	m_cube.SetSpecularColor({ 1, 1, 1, 1 });		// спользуется для установки цвета бликов (спекулярного цвета) для объекта или материала
-	m_cube.SetShininess(4.0f);						// используется для установки коэффициента блеска (shininess) объекта или материала
-
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::FRONT_SQUARE_FACE, { 1, 0, 0, 1});
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::REAR_SQUARE_FACE, { 0, 1, 0, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::BACK_SQUARE_FACE, { 0, 1, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_SQUARE_FACE, { 0, 0, 1, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_SQUARE_FACE, { 1, 1, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::UPPER_SQUARE_FACE, { 1, 0, 1, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::LOWER_SQUARE_FACE, { 0, 1, 1, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::BOTTOM_SQUARE_FACE, { 0, 1, 1, 1 });
 
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_UPPER_FRONT_TRIANGULAR_FACE, { 1, 0.5, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_UPPER_FRONT_TRIANGULAR_FACE, { 0.5, 0, 1, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_LOWER_FRONT_TRIANGULAR_FACE, { 0.5, 0.5, 0.5, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_LOWER_FRONT_TRIANGULAR_FACE, { 0.2, 0.6, 0.9, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_BOTTOM_FRONT_TRIANGULAR_FACE, { 0.5, 0.5, 0.5, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_FRONT_TRIANGULAR_FACE, { 0.2, 0.6, 0.9, 1 });
 
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_UPPER_REAR_TRIANGULAR_FACE, { 0, 0, 0, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_UPPER_REAR_TRIANGULAR_FACE, { 0.5, 0.5, 1, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_LOWER_REAR_TRIANGULAR_FACE, { 0.7, 0.2, 0.8, 1 });
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_LOWER_REAR_TRIANGULAR_FACE, { 0.4, 0.8, 0.2, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_UPPER_BACK_TRIANGULAR_FACE, { 0, 0, 0, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_UPPER_BACK_TRIANGULAR_FACE, { 0.5, 0.5, 1, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.7, 0.2, 0.8, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.4, 0.8, 0.2, 1 });
 
 	/*m_cuboctahedron.SetSpecularColor({ 1, 1, 1, 1 });
 	m_cuboctahedron.SetShininess(4.0f);*/
@@ -151,10 +139,7 @@ void Window::Draw(int width, int height)
 
 	SetupCameraMatrix();
 
-	//m_cube.Draw();
-	//m_dodecahedron.Draw();
 	m_cuboctahedron.Draw();
-	
 }
 
 void Window::SetupCameraMatrix()

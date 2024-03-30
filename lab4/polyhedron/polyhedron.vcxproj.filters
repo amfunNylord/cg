@@ -13,54 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="BaseWindow">
+      <UniqueIdentifier>{0496f65c-f566-4c40-89a0-dbdd472e523c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLFWInitializer">
+      <UniqueIdentifier>{b53f86b5-5066-4bc2-a3a5-49e913a8e4a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{940e1a0d-373e-4d63-ad5f-446e6a024c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectLight">
+      <UniqueIdentifier>{9818d02d-2497-4d32-b863-55e1443c0d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cuboctahedron">
+      <UniqueIdentifier>{7baf96c9-5f3f-4961-b9d3-de804413ec07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cube">
+      <UniqueIdentifier>{0fc01218-4c5d-46ae-af68-b91e0f847b18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectLight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLFWInitializer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseWindow.cpp">
+      <Filter>BaseWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="GLFWInitializer.cpp">
+      <Filter>GLFWInitializer</Filter>
+    </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectLight.cpp">
+      <Filter>DirectLight</Filter>
     </ClCompile>
     <ClCompile Include="Cuboctahedron.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Cuboctahedron</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectLight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GLFWInitializer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BaseWindow.h">
+      <Filter>BaseWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFWInitializer.h">
+      <Filter>GLFWInitializer</Filter>
+    </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectLight.h">
+      <Filter>DirectLight</Filter>
     </ClInclude>
     <ClInclude Include="Cuboctahedron.h">
-      <Filter>Header Files</Filter>
+      <Filter>Cuboctahedron</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Cube</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

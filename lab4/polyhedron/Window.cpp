@@ -49,8 +49,8 @@ Window::Window(int w, int h, const char* title)
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.7, 0.2, 0.8, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.4, 0.8, 0.2, 1 });
 
-	/*m_cuboctahedron.SetSpecularColor({ 1, 1, 1, 1 });
-	m_cuboctahedron.SetShininess(4.0f);*/
+	m_cuboctahedron.SetSpecularColor({ 1, 1, 1, 1 });
+	m_cuboctahedron.SetShininess(4.0f);
 }
 
 void Window::OnMouseButton(int button, int action, int mods)
@@ -110,8 +110,8 @@ void Window::OnResize(int width, int height)
 
 void Window::OnRunStart()
 {
-	//glEnable(GL_LIGHTING);	// включаем освещение
-	//glEnable(GL_LIGHT0);	// включаем источник света
+	glEnable(GL_LIGHTING);	// включаем освещение
+	glEnable(GL_LIGHT0);	// включаем источник света
 
 	// Включаем режим отбраковки граней
 	glEnable(GL_CULL_FACE);
@@ -125,11 +125,11 @@ void Window::OnRunStart()
 	glEnable(GL_DEPTH_TEST);
 
 	// Направление на источник света (совпадает с позицией наблюдателя)
-	//DirectLight light{ { 0.0f, 0.0f, 1.0f } };
-	//light.SetDiffuseIntensity({ 0.5f, 0.5f, 0.5f, 1.0f });	//  используется для установки интенсивности диффузного (рассеянного) освещения для конкретного источника света
-	//light.SetAmbientIntensity({ 0.0f, 0.0f, 0.0f, 1.0f });	
-	//light.SetSpecularIntensity({ 0.3f, 0.3f, 0.3f, 1.0f });		 
-	//light.Apply(GL_LIGHT0);	
+	DirectLight light{ { 0.0f, 0.0f, 1.0f } };
+	light.SetDiffuseIntensity({ 0.5f, 0.5f, 0.5f, 1.0f });	//  используется для установки интенсивности диффузного (рассеянного) освещения для конкретного источника света
+	light.SetAmbientIntensity({ 0.0f, 0.0f, 0.0f, 1.0f });	
+	light.SetSpecularIntensity({ 0.3f, 0.3f, 0.3f, 1.0f });		 
+	light.Apply(GL_LIGHT0);	
 }
 
 void Window::Draw(int width, int height)

@@ -65,9 +65,9 @@ void Cuboctahedron::Draw() const
 	glEnable(GL_COLOR_MATERIAL);
 	// ÷вет вершины будет управл€ть диффузным и фоновым цветом материала
 	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, glm::value_ptr(m_specularColor));
+	//glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, glm::value_ptr(m_specularColor));
+	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, m_shininess);
 
-	glPushMatrix();
 	glScalef(m_size * 0.5f, m_size * 0.5f, m_size * 0.5f);
 
 	glBegin(GL_TRIANGLES);
@@ -77,12 +77,21 @@ void Cuboctahedron::Draw() const
 			// устанавливаем цвет грани
 			glColor4fv(glm::value_ptr(m_sideColors[face + 6]));
 
-			// задаем треугольную грань, перечисл€€ ее вершины
-			for (size_t i = 0; i < 3; ++i)
-			{
-				size_t vertexIndex = triangularFaces[face][i];
-				glVertex3fv(vertices[vertexIndex]);
-			}
+			const unsigned char* facePoints = triangularFaces[face];
+
+			auto p0 = glm::make_vec3(vertices[facePoints[0]]);
+			auto p1 = glm::make_vec3(vertices[facePoints[1]]);
+			auto p2 = glm::make_vec3(vertices[facePoints[2]]);
+
+			auto v01 = p1 - p0;
+			auto v02 = p2 - p0;
+			auto normal = glm::normalize(glm::cross(v01, v02));
+
+			glNormal3fv(glm::value_ptr(normal));
+
+			glVertex3fv(glm::value_ptr(p0));
+			glVertex3fv(glm::value_ptr(p1));
+			glVertex3fv(glm::value_ptr(p2));
 		}
 	}
 	glEnd();
@@ -94,18 +103,26 @@ void Cuboctahedron::Draw() const
 			// устанавливаем цвет грани
 			glColor4fv(glm::value_ptr(m_sideColors[face]));
 
-			// задаем четырехугольную грань, перечисл€€ ее вершины
-			for (size_t i = 0; i < 4; ++i)
-			{
-				size_t vertexIndex = squareFaces[face][i];
-				glVertex3fv(vertices[vertexIndex]);
-			}
+			const unsigned char* facePoints = squareFaces[face];
+
+			auto p0 = glm::make_vec3(vertices[facePoints[0]]);
+			auto p1 = glm::make_vec3(vertices[facePoints[1]]);
+			auto p2 = glm::make_vec3(vertices[facePoints[2]]);
+			auto p3 = glm::make_vec3(vertices[facePoints[3]]);
+
+			auto v01 = p1 - p0;
+			auto v02 = p2 - p0;
+			auto normal = glm::normalize(glm::cross(v01, v02));
+
+			glNormal3fv(glm::value_ptr(normal));
+
+			glVertex3fv(glm::value_ptr(p0));
+			glVertex3fv(glm::value_ptr(p1));
+			glVertex3fv(glm::value_ptr(p2));
+			glVertex3fv(glm::value_ptr(p3));
 		}
 	}
 	glEnd();
-
-	// ¬осстанавливаем матрицу моделировани€ вида из стека матриц
-	glPopMatrix();
 }
 
 void Cuboctahedron::SetSideColor(CuboctahedronSide side, const glm::vec4& color)
@@ -114,12 +131,12 @@ void Cuboctahedron::SetSideColor(CuboctahedronSide side, const glm::vec4& color)
 	m_sideColors[index] = color;
 }
 
-//void Cuboctahedron::SetSpecularColor(glm::vec4 color)
-//{
-//	m_specularColor = color;
-//}
-//
-//void Cuboctahedron::SetShininess(float shininess)
-//{
-//	m_shininess = shininess;
-//}
+void Cuboctahedron::SetSpecularColor(glm::vec4 color)
+{
+	m_specularColor = color;
+}
+
+void Cuboctahedron::SetShininess(float shininess)
+{
+	m_shininess = shininess;
+}

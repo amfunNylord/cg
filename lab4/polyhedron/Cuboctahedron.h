@@ -25,12 +25,12 @@ public:
 	void Draw() const;
 
 	void SetSideColor(CuboctahedronSide side, const glm::vec4& color);
-	/*void SetSpecularColor(glm::vec4 color);
-	void SetShininess(float shininess);*/
+	void SetSpecularColor(glm::vec4 color);
+	void SetShininess(float shininess);
 
 private:
 	float m_size;
 	glm::vec4 m_sideColors[14];
-	/*glm::vec4 m_specularColor = { 0, 0, 0, 1 };
-	float m_shininess = 1;*/
+	glm::vec4 m_specularColor = { 0, 0, 0, 1 };
+	float m_shininess = 1;
 };

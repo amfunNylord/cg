@@ -28,9 +28,6 @@
     <Filter Include="Cuboctahedron">
       <UniqueIdentifier>{7baf96c9-5f3f-4961-b9d3-de804413ec07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cube">
-      <UniqueIdentifier>{0fc01218-4c5d-46ae-af68-b91e0f847b18}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,9 +51,6 @@
     <ClCompile Include="Cuboctahedron.cpp">
       <Filter>Cuboctahedron</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Cube</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -76,9 +70,6 @@
     </ClInclude>
     <ClInclude Include="Cuboctahedron.h">
       <Filter>Cuboctahedron</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Cube</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

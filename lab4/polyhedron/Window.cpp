@@ -44,7 +44,7 @@ Window::Window(int w, int h, const char* title)
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_BOTTOM_FRONT_TRIANGULAR_FACE, { 0.5, 0.5, 0.5, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_FRONT_TRIANGULAR_FACE, { 0.2, 0.6, 0.9, 1 });
 
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_UPPER_BACK_TRIANGULAR_FACE, { 0, 0, 0, 1 });
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_UPPER_BACK_TRIANGULAR_FACE, { 0, 0.5, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_UPPER_BACK_TRIANGULAR_FACE, { 0.5, 0.5, 1, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.7, 0.2, 0.8, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_BACK_TRIANGULAR_FACE, { 0.4, 0.8, 0.2, 1 });

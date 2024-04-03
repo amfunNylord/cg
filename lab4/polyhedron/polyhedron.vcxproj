@@ -144,7 +144,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseWindow.cpp" />
-    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cuboctahedron.cpp" />
     <ClCompile Include="DirectLight.cpp" />
     <ClCompile Include="GLFWInitializer.cpp" />
@@ -154,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseWindow.h" />
-    <ClInclude Include="Cube.h" />
     <ClInclude Include="Cuboctahedron.h" />
     <ClInclude Include="DirectLight.h" />
     <ClInclude Include="GLFWInitializer.h" />

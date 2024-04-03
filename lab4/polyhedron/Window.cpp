@@ -32,7 +32,7 @@ Window::Window(int w, int h, const char* title)
 	: BaseWindow(w, h, title)
 	, m_cuboctahedron(CUBOCTAHEDRON_SIZE)
 {
-	m_cuboctahedron.SetSideColor(CuboctahedronSide::FRONT_SQUARE_FACE, { 1, 0, 0, 1});
+	m_cuboctahedron.SetSideColor(CuboctahedronSide::FRONT_SQUARE_FACE, { 1, 0, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::BACK_SQUARE_FACE, { 0, 1, 0, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::RIGHT_SQUARE_FACE, { 0, 0, 1, 1 });
 	m_cuboctahedron.SetSideColor(CuboctahedronSide::LEFT_SQUARE_FACE, { 1, 1, 0, 1 });
@@ -97,45 +97,39 @@ void Window::RotateCamera(double xAngleRadians, double yAngleRadians)
 
 void Window::OnResize(int width, int height)
 {
-	glViewport(0, 0, width, height);	//  используется для установки прямоугольной области вывода в окне отрисовки. Она определяет, какие координаты изображения будут отображаться в каких пикселях окна.
+	glViewport(0, 0, width, height); //  используется для установки прямоугольной области вывода в окне отрисовки. Она определяет, какие координаты изображения будут отображаться в каких пикселях окна.
 
 	// Вычисляем соотношение сторон клиентской области окна
 	double aspect = double(width) / double(height);
 
 	glMatrixMode(GL_PROJECTION);
-	const auto proj = glm::perspective(FIELD_OF_VIEW, aspect, Z_NEAR, Z_FAR);	// создает матрицу проекции, которая преобразует координаты вершин объектов из пространства мира в пространство камеры с учетом перспективы
-	glLoadMatrixd(&proj[0][0]);	// используется для загрузки матрицы в стек матриц OpenGL
-	glMatrixMode(GL_MODELVIEW);	// используется для установки текущей матрицы для дальнейших операций над матрицами.
+	const auto proj = glm::perspective(FIELD_OF_VIEW, aspect, Z_NEAR, Z_FAR); // создает матрицу проекции, которая преобразует координаты вершин объектов из пространства мира в пространство камеры с учетом перспективы
+	glLoadMatrixd(&proj[0][0]); // используется для загрузки матрицы в стек матриц OpenGL
+	glMatrixMode(GL_MODELVIEW); // используется для установки текущей матрицы для дальнейших операций над матрицами.
 }
 
 void Window::OnRunStart()
 {
-	glEnable(GL_LIGHTING);	// включаем освещение
-	glEnable(GL_LIGHT0);	// включаем источник света
+	glEnable(GL_LIGHTING); // включаем освещение
+	glEnable(GL_LIGHT0); // включаем источник света
 
 	// Включаем режим отбраковки граней
 	glEnable(GL_CULL_FACE);
 	// Отбраковываться будут нелицевые стороны граней
-	glCullFace(GL_BACK);		
-	// Сторона примитива считается лицевой, если при ее рисовании
-	// обход верших осуществляется против часовой стрелки
-	glFrontFace(GL_CCW);	
-
-	// Включаем тест глубины для удаления невидимых линий и поверхностей
-	glEnable(GL_DEPTH_TEST);
+	glCullFace(GL_BACK);
 
 	// Направление на источник света (совпадает с позицией наблюдателя)
 	DirectLight light{ { 0.0f, 0.0f, 1.0f } };
-	light.SetDiffuseIntensity({ 0.5f, 0.5f, 0.5f, 1.0f });	//  используется для установки интенсивности диффузного (рассеянного) освещения для конкретного источника света
-	light.SetAmbientIntensity({ 0.0f, 0.0f, 0.0f, 1.0f });	
-	light.SetSpecularIntensity({ 0.3f, 0.3f, 0.3f, 1.0f });		 
-	light.Apply(GL_LIGHT0);	
+	light.SetDiffuseIntensity({ 0.5f, 0.5f, 0.5f, 1.0f }); //  используется для установки интенсивности диффузного (рассеянного) освещения для конкретного источника света
+	light.SetAmbientIntensity({ 0.0f, 0.0f, 0.0f, 1.0f });
+	light.SetSpecularIntensity({ 0.3f, 0.3f, 0.3f, 1.0f });
+	light.Apply(GL_LIGHT0);
 }
 
 void Window::Draw(int width, int height)
 {
-	glClearColor(1, 1, 1, 1);	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	SetupCameraMatrix();
 

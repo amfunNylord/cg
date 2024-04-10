@@ -25,6 +25,9 @@
     <Filter Include="MobiusStrip">
       <UniqueIdentifier>{cfdae69b-9ddd-4239-86a5-ef496d730682}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MobiusStripSmall">
+      <UniqueIdentifier>{757f4f83-231b-4175-9c71-82b7cd8da101}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="MobiusStrip.cpp">
       <Filter>MobiusStrip</Filter>
     </ClCompile>
+    <ClCompile Include="MobiusStripSmall.cpp">
+      <Filter>MobiusStripSmall</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -61,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="MobiusStrip.h">
       <Filter>MobiusStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="MobiusStripSmall.h">
+      <Filter>MobiusStripSmall</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,8 @@ public:
 	using BaseWindow::BaseWindow;
 
 private:
+	void Update();
+
 	void OnMouseButton(int button, int action, [[maybe_unused]] int mods) override;
 
 	void OnMouseMove(double x, double y) override;
@@ -27,7 +29,7 @@ private:
 	// Размер видимого объема, который должен поместиться в порт просмотра
 	static constexpr double FRUSTUM_SIZE = 2;
 	// Расстояние от камеры до точки вращения
-	static constexpr double DISTANCE_TO_ORIGIN = 2;
+	static constexpr double DISTANCE_TO_ORIGIN = 3.3;
 
 	bool m_buttonPressed = false;
 	glm::dvec2 m_mousePos = {};
@@ -35,4 +37,5 @@ private:
 		glm::dvec3{ 0.0, 0.0, DISTANCE_TO_ORIGIN },
 		glm::dvec3{ 0.0, 0.0, 0.0 },
 		glm::dvec3{ 0.0, 1.0, 0.0 });
+	float m_angle = 0;
 };

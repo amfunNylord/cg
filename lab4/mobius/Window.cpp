@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Window.h"
 #include "MobiusStrip.h"
+#include "MobiusStripSmall.h"
 
 namespace
 {
@@ -20,6 +21,16 @@ glm::dmat4x4 Orthonormalize(const glm::dmat4x4& m)
 }
 
 } // namespace
+
+void Window::Update()
+{
+	m_angle += 0.1f;
+
+	if (m_angle > 360)
+	{
+		m_angle -= 360;
+	}
+}
 
 void Window::OnMouseButton(int button, int action, int mods)
 {
@@ -111,6 +122,10 @@ void Window::Draw(int width, int height)
 
 	MobiusStrip mobiusStrip;
 	mobiusStrip.Draw();
+	MobiusStripSmall mobiusStripSmall;
+	mobiusStripSmall.Draw(m_angle);
+
+	Update();
 }
 
 void Window::SetupProjectionMatrix(int width, int height)

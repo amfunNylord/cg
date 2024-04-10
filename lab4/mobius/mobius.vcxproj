@@ -151,6 +151,7 @@
     <ClCompile Include="GLFWInitializer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MobiusStrip.cpp" />
+    <ClCompile Include="MobiusStripSmall.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="GLFWInitializer.h" />
     <ClInclude Include="MobiusStrip.h" />
+    <ClInclude Include="MobiusStripSmall.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

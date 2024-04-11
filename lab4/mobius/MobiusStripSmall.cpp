@@ -11,8 +11,6 @@ void MobiusStripSmall::Draw(const float& angle)
 	float x = 0, y = 0, z = 0;
 	float r, g, b;
 
-	// нарисовать вторую ленту по меньше, чтобы она сама вращалась
-	// уменьшить кол-во примитивов и без дырок
 	double u = 0, v = 0;
 	for (v = -1; v <= 1; v += 0.05)
 	{

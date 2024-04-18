@@ -21,7 +21,7 @@ Cuboctahedron::Cuboctahedron(float size)
 	SetSideColor(CuboctahedronSide::LEFT_BOTTOM_BACK_TRIANGULAR_FACE, defaultColor);
 	SetSideColor(CuboctahedronSide::RIGHT_BOTTOM_BACK_TRIANGULAR_FACE, defaultColor);
 }
-
+// поменять местоположение источника света 
 void Cuboctahedron::Draw() const
 {
 	static constexpr float vertices[12][3] = {
@@ -40,23 +40,23 @@ void Cuboctahedron::Draw() const
 	};
 
 	static constexpr unsigned char triangularFaces[8][3] = {
-		{ 11, 10, 9 }, // левый верх угол лица
-		{ 10, 7, 6 }, // правый верх угол лица
-		{ 0, 1, 11 }, // левый низ угол лица
-		{ 1, 2, 7 }, // правый низ угол лица
-		{ 4, 9, 8 }, // левый верх невидим угла
-		{ 8, 6, 5 }, // правый верх невидим угла
-		{ 0, 4, 3 }, // левый низ невидим угла
-		{ 3, 5, 2 }, // правый низ невидим угла
+		{ 11, 10, 9 }, 
+		{ 10, 7, 6 }, 
+		{ 0, 1, 11 }, 
+		{ 1, 2, 7 }, 
+		{ 4, 9, 8 }, 
+		{ 8, 6, 5 }, 
+		{ 0, 4, 3 }, 
+		{ 3, 5, 2 }, 
 	};
 
 	static constexpr unsigned char squareFaces[6][4] = {
-		{ 11, 1, 7, 10 }, // лицевой
-		{ 4, 8, 5, 3 }, // задний
-		{ 7, 2, 5, 6 }, // правый
-		{ 0, 11, 9, 4 }, // левый
-		{ 1, 0, 3, 2 }, // нижний
-		{ 10, 6, 8, 9 }, // верхний
+		{ 11, 1, 7, 10 }, 
+		{ 4, 8, 5, 3 },
+		{ 7, 2, 5, 6 }, 
+		{ 0, 11, 9, 4 }, 
+		{ 1, 0, 3, 2 },
+		{ 10, 6, 8, 9 }, 
 	};
 
 	static size_t const triangularFaceCount = sizeof(triangularFaces) / sizeof(*triangularFaces);
@@ -85,7 +85,8 @@ void Cuboctahedron::Draw() const
 
 			auto v01 = p1 - p0;
 			auto v02 = p2 - p0;
-			auto normal = glm::normalize(glm::cross(v01, v02));
+			// зачем приводить нормали к единичному размеру
+			auto normal = glm::normalize(glm::cross(v01, v02)); // выяснить что длает кросс и как посчитать нормаль к  грани
 
 			glNormal3fv(glm::value_ptr(normal));
 

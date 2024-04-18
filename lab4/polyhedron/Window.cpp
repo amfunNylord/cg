@@ -83,6 +83,7 @@ void Window::RotateCamera(double xAngleRadians, double yAngleRadians)
 	// совпадающих с экранными ос€ми X и Y.
 	// —трого говор€, дл€ этого надо извлекать столбцы их обратной матрицы камеры, но так как
 	// матрица камеры ортонормированна€, достаточно транспонировать еЄ подматрицу 3*3
+	// узнать что такое ортонормированна€ матрица
 	const glm::dvec3 xAxis{
 		m_cameraMatrix[0][0], m_cameraMatrix[1][0], m_cameraMatrix[2][0]
 	};
@@ -117,6 +118,10 @@ void Window::OnRunStart()
 	glEnable(GL_CULL_FACE);
 	// ќтбраковыватьс€ будут нелицевые стороны граней
 	glCullFace(GL_BACK);
+
+	glFrontFace(GL_CCW);
+
+	glEnable(GL_DEPTH_TEST);
 
 	// Ќаправление на источник света (совпадает с позицией наблюдател€)
 	DirectLight light{ { 0.0f, 0.0f, 1.0f } };

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BaseWindow">
+      <UniqueIdentifier>{e5b475fb-1570-4ff2-bbf1-0a1587444c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectLight">
+      <UniqueIdentifier>{9bde9664-6e93-47ea-a086-d06d2adb4f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLFWInitializer">
+      <UniqueIdentifier>{64ddb2ce-8234-4147-bc73-4296a08eae39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{b6a025c7-431d-4b38-88cb-d6a5d9793266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cottage">
+      <UniqueIdentifier>{eb890c93-41b0-4a1b-baf1-20ac58ac4a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment">
+      <UniqueIdentifier>{1ee7fa33-6b2a-4fa1-b1bc-11255df4b46b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TextureLoader">
+      <UniqueIdentifier>{8a84cbf3-75c9-48c7-94e2-9fe76f268bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{f83e0cd7-f386-4c1c-b347-51a6f5b5c231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexturedCube">
+      <UniqueIdentifier>{256c5c20-65d1-449c-bb95-e13459bffbc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexturedRectangle">
+      <UniqueIdentifier>{5627f44d-7416-4077-8d2a-d6c3cc8ba512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TexturedTriangle">
+      <UniqueIdentifier>{f545e89f-250a-4029-b374-eb318620ccd2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWindow.cpp">
+      <Filter>BaseWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectLight.cpp">
+      <Filter>DirectLight</Filter>
+    </ClCompile>
+    <ClCompile Include="GLFWInitializer.cpp">
+      <Filter>GLFWInitializer</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Cottage.cpp">
+      <Filter>Cottage</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedCube.cpp">
+      <Filter>TexturedCube</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedRectangle.cpp">
+      <Filter>TexturedRectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedTriangle.cpp">
+      <Filter>TexturedTriangle</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common_inc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseWindow.h">
+      <Filter>BaseWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectLight.h">
+      <Filter>DirectLight</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFWInitializer.h">
+      <Filter>GLFWInitializer</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Cottage.h">
+      <Filter>Cottage</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedCube.h">
+      <Filter>TexturedCube</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedRectangle.h">
+      <Filter>TexturedRectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedTriangle.h">
+      <Filter>TexturedTriangle</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

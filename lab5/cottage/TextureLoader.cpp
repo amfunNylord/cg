@@ -7,7 +7,8 @@
 // для чего нужна нормаль
 // разобраться что такое фильтрация текстур
 // разобраться с WRAP, когда имеет смысл исполььзовать
-//  
+
+// сгенерировать mipmap'ы
 Texture TextureLoader::LoadTexture(std::string const& fileName, GLuint level) const
 {
 	int width, height, nrChannels;

@@ -7,6 +7,8 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+#include <GL/glew.h>
+
 #include <windows.h>
 #include <GL/GL.h>
 #include <GL/GLU.h>

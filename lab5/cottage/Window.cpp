@@ -62,6 +62,10 @@ void Window::OnMouseMove(double x, double y)
 // объяснить что такое ортонормированная матрица, как можно перемножить векторы
 void Window::RotateCamera(double xAngleRadians, double yAngleRadians)
 {
+	// Извлекаем из 1 и 2 строки матрицы камеры направления осей вращения,
+	// совпадающих с экранными осями X и Y.
+	// Строго говоря, для этого надо извлекать столбцы их обратной матрицы камеры, но так как
+	// матрица камеры ортонормированная, достаточно транспонировать её подматрицу 3*3
 	const glm::dvec3 xAxis{
 		m_cameraMatrix[0][0], m_cameraMatrix[1][0], m_cameraMatrix[2][0]
 	};
@@ -160,15 +164,16 @@ void Window::SetupCameraMatrix() const
 
 void Window::SetupFog()
 {
-	// посмотреть какие виды тумана бывают в opengl, чем различаются, подобрать параметры в соответсвие с моим туманом
 	if (m_fogEnabled)
 	{
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		const float density = 0.2f;
+		const float density = 0.15f;
 		glEnable(GL_FOG);
-		glFogi(GL_FOG_MODE, GL_EXP);
-		glFogf(GL_FOG_COLOR, (0.1f, 0.1f, 0.1f, 1.0f));
+		glFogi(GL_FOG_MODE, GL_EXP2);
+		GLfloat fogColor[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // Цвет тумана (серый)
+		glFogfv(GL_FOG_COLOR, fogColor);
 		glFogf(GL_FOG_DENSITY, density);
+
 	}
 	else
 	{

@@ -137,7 +137,7 @@
     <ClCompile Include="..\libgl\ShaderLoader.cpp" />
     <ClCompile Include="CMyApplication.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="CSurface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libgl\AnimationController.h" />
@@ -154,7 +154,7 @@
     <ClInclude Include="..\libgl\ShaderLoader.h" />
     <ClInclude Include="..\libgl\Shaders.h" />
     <ClInclude Include="CMyApplication.h" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="CSurface.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -163,6 +163,7 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets" Condition="Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" />
     <Import Project="..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets" Condition="Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" />
+    <Import Project="..\packages\glm.1.0.1\build\native\glm.targets" Condition="Exists('..\packages\glm.1.0.1\build\native\glm.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -170,5 +171,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets'))" />
     <Error Condition="!Exists('..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets'))" />
+    <Error Condition="!Exists('..\packages\glm.1.0.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.1.0.1\build\native\glm.targets'))" />
   </Target>
 </Project>

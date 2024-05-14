@@ -1,21 +1,24 @@
-#include "../libgl/pch.h"
 #include "CMyApplication.h"
 #include <iostream>
 
+CMyApplication app("ShaderTransformation", 800, 600);
+
 int main()
 {
-	CMyApplication application("Morphing", 800, 600);
+	glewInit();
+	if (!GLEW_ARB_shader_objects)
+	{
+		return -1;
+	}
+
 	try
 	{
-		if (glewInit() != GLEW_OK)
-		{
-			throw std::runtime_error("Failed to initialize GLEW");
-		}
-		application.MainLoop();
+		app.MainLoop();
 	}
 	catch (std::exception const& e)
 	{
-		std::cout << e.what();
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
+
 	return 0;
 }

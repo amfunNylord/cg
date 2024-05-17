@@ -4,6 +4,8 @@
 #include "CModelMaterial.h"
 #include "CTextureMap.h"
 
+// разные цвета фигуры, посмотреть нормали
+
 class CModel;
 class CModelMaterial;
 class CTextureMap;

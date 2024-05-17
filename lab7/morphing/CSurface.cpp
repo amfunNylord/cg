@@ -12,16 +12,6 @@ CSurface::CSurface(
 {
 }
 
-// Vertex CSurface::CalculateVertex(double x, double y)const
-//{
-//	Vertex result =
-//	{
-//		float(x), float(y), 0,
-//		0, 0, 1
-//	};
-//	return result;
-// }
-
 void CSurface::Draw() const
 {
 	// При первом обращении к данной функции запишем команды
@@ -51,12 +41,10 @@ void CSurface::Draw() const
 				Vertex v0 = { x, y + dy, 0 };
 				Vertex v1 = { x, y, 0 };
 
-				// задаем нормаль и координаты вершины на четной позиции
-				// glNormal3f(v0.nx, v0.ny, v0.nz);
+				// задаем координаты вершины на четной позиции
 				glVertex3f(v0.x, v0.y, v0.z);
 
-				// задаем нормаль и координаты вершины на нечетной позиции
-				// glNormal3f(v1.nx, v1.ny, v1.nz);
+				// задаем координаты вершины на нечетной позиции
 				glVertex3f(v1.x, v1.y, v1.z);
 			}
 			glEnd();

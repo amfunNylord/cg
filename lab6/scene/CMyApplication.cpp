@@ -95,7 +95,7 @@ void CMyApplication::OnInit()
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	CDirectLight light;
-	light.SetSpecularIntensity(1.0f, 0.3f, 0.3f);
+	light.SetSpecularIntensity(0.3f, 0.3f, 0.3f);
 	light.SetLight(GL_LIGHT0);
 
 	// Задаем параметры материала

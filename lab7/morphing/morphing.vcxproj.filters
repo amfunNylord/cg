@@ -16,6 +16,9 @@
     <Filter Include="CMyApplication">
       <UniqueIdentifier>{89e40ba9-31b7-4a01-bfb9-5879dc8ff4b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CSurface">
+      <UniqueIdentifier>{056a036f-a201-42c0-b93a-7f85cc4fbb2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -23,9 +26,6 @@
     </ClCompile>
     <ClCompile Include="CMyApplication.cpp">
       <Filter>CMyApplication</Filter>
-    </ClCompile>
-    <ClCompile Include="CSurface.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\libgl\AnimationController.cpp">
       <Filter>Source Files</Filter>
@@ -51,13 +51,13 @@
     <ClCompile Include="..\libgl\ShaderLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CSurface.cpp">
+      <Filter>CSurface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMyApplication.h">
       <Filter>CMyApplication</Filter>
-    </ClInclude>
-    <ClInclude Include="CSurface.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\libgl\AnimationController.h">
       <Filter>Header Files</Filter>
@@ -97,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="..\libgl\Shaders.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSurface.h">
+      <Filter>CSurface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

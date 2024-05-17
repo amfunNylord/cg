@@ -48,8 +48,7 @@ void CMyApplication::OnDisplay()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glPushMatrix();
-	// glScalef(0.6f, 0.6f, 1);
-	// glTranslatef(-1.5, -2, -0.5);
+
 	glUseProgram(m_program);
 
 	GLint timeUniform = glGetUniformLocation(m_program, "u_time");

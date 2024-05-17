@@ -21,6 +21,7 @@ void CMyApplication::OnInit()
 	InitShaders();
 }
 
+// доработать программу чтобы рядом была зеленая звезда
 void CMyApplication::OnDisplay()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

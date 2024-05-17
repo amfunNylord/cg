@@ -5,7 +5,6 @@
 struct Vertex
 {
 	float x, y, z;
-	// float nx, ny, nz;
 };
 
 class CSurface

@@ -10,6 +10,6 @@ void main()
 
 	position.y = canabolaCoef * sin(position.x);
 	position.x = canabolaCoef * cos(position.x);
-	
+
 	gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * position;
 }

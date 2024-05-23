@@ -40,6 +40,7 @@ void CMyApplication::OnDisplay()
 
 	static float workTime = 0;
 	workTime += time;
+
 	if (workTime >= 3)
 	{
 		workTime -= 4;

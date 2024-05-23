@@ -45,4 +45,16 @@ void main()
     {
         gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
     }
+
+    const vec2 p0 = vec2();     
+
+    if (PointIsInsideStar())
+    {
+        gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    }
+    else
+    {
+        gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    }
+
 }

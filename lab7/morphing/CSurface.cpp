@@ -25,20 +25,22 @@ void CSurface::Draw() const
 		const float dy = (m_yMax - m_yMin) / (m_rows - 1);
 		const float dx = (m_xMax - m_xMin) / (m_columns - 1);
 
+		const float d = (dx < dy) ? dx : dy;
+
 		float y = m_yMin;
 		// пробегаем по строкам сетки
-		for (int row = 0; row < m_rows - 1; ++row, y += dy)
+		for (int row = 0; row < m_rows - 1; ++row, y += d)
 		{
 			// каждой строке будет соответствовать своя лента из треугольников
 			glBegin(GL_TRIANGLE_STRIP);
 			float x = m_xMin;
 
 			// пробегаем по столбцам текущей строки
-			for (int column = 0; column <= m_columns; ++column, x += dx)
+			for (int column = 0; column <= m_columns; ++column, x += d)
 			{
 				// вычисляем параметры вершины в узлах пары соседних вершин
 				// ленты из треугольников
-				Vertex v0 = { x, y + dy, 0 };
+				Vertex v0 = { x, y + d, 0 };
 				Vertex v1 = { x, y, 0 };
 
 				// задаем координаты вершины на четной позиции
